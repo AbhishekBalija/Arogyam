@@ -15,7 +15,7 @@ export default withSentryConfig(nextConfig, {
   // https://github.com/getsentry/sentry-webpack-plugin#options
 
   org: "abhi-org-w5", // Use the org that matches your Sentry auth token
-  project: "care-pulse",
+  project: "arogyam",
 
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,
