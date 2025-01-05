@@ -22,7 +22,11 @@ export const columns: ColumnDef<Appointment>[] = [
     header: "Patient",
     cell: ({ row }) => {
       const appointment = row.original;
-      return <p className="text-14-medium ">{appointment.patient.name}</p>;
+      return (
+        <p className="text-14-medium ">
+          {appointment.patient?.name || "No patient name"}
+        </p>
+      );
     },
   },
   {
@@ -44,7 +48,9 @@ export const columns: ColumnDef<Appointment>[] = [
       const appointment = row.original;
       return (
         <p className="text-14-regular min-w-[100px]">
-          {formatDateTime(appointment.schedule).dateTime}
+          {appointment.schedule
+            ? formatDateTime(appointment.schedule).dateTime
+            : "No schedule"}
         </p>
       );
     },
@@ -54,21 +60,24 @@ export const columns: ColumnDef<Appointment>[] = [
     header: "Doctor",
     cell: ({ row }) => {
       const appointment = row.original;
-
       const doctor = Doctors.find(
         (doctor) => doctor.name === appointment.primaryPhysician
       );
 
       return (
         <div className="flex items-center gap-3">
-          <Image
-            src={doctor?.image!}
-            alt="doctor"
-            width={100}
-            height={100}
-            className="size-8"
-          />
-          <p className="whitespace-nowrap">Dr. {doctor?.name}</p>
+          {doctor && (
+            <>
+              <Image
+                src={doctor.image}
+                alt={`Dr. ${doctor.name}`}
+                width={100}
+                height={100}
+                className="size-8"
+              />
+              <p className="whitespace-nowrap">Dr. {doctor.name}</p>
+            </>
+          )}
         </div>
       );
     },
@@ -78,6 +87,7 @@ export const columns: ColumnDef<Appointment>[] = [
     header: () => <div className="pl-4">Actions</div>,
     cell: ({ row }) => {
       const appointment = row.original;
+      if (!appointment.patient?.$id) return null;
 
       return (
         <div className="flex gap-1">
