@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import CurrentYear from "@/components/CurrentYear";
 import { Button } from "@/components/ui/button";
 import { Doctors } from "@/constants";
 import { getAppointment } from "@/lib/actions/appointment.actions";
@@ -22,11 +23,11 @@ const RequestSuccess = async ({
       <div className="success-img">
         <Link href="/">
           <Image
-            src="/assets/icons/logo-full.svg"
+            src="/assets/icons/Arogyam.svg"
             height={1000}
             width={1000}
             alt="logo"
-            className="h-10 w-fit"
+            className="h-24 w-fit"
           />
         </Link>
 
@@ -73,7 +74,9 @@ const RequestSuccess = async ({
           </Link>
         </Button>
 
-        <p className="copyright">© 2024 CarePluse</p>
+        <p className="copyright">
+          © <CurrentYear /> Arogyam
+        </p>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
+import CurrentYear from "@/components/CurrentYear";
 import RegisterForm from "@/components/forms/RegisterForm";
 import { getPatient, getUser } from "@/lib/actions/patient.actions";
 
@@ -15,16 +16,18 @@ const Register = async ({ params: { userId } }: SearchParamProps) => {
       <section className="remove-scrollbar container">
         <div className="sub-container max-w-[860px] flex-1 flex-col py-10">
           <Image
-            src="/assets/icons/logo-full.svg"
+            src="/assets/icons/Arogyam.svg"
             height={1000}
             width={1000}
             alt="patient"
-            className="mb-12 h-10 w-fit"
+            className="mb-12 h-24 w-fit"
           />
 
           <RegisterForm user={user} />
 
-          <p className="copyright py-12">© 2024 CarePluse</p>
+          <p className="copyright py-12">
+            © <CurrentYear /> Arogyam
+          </p>
         </div>
       </section>
 

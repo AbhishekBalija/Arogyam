@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import CurrentYear from "@/components/CurrentYear";
 import { AppointmentForm } from "@/components/forms/AppointmentForm";
 import { getPatient } from "@/lib/actions/patient.actions";
 
@@ -11,11 +12,11 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[860px] flex-1 justify-between">
           <Image
-            src="/assets/icons/logo-full.svg"
+            src="/assets/icons/Arogyam.svg"
             height={1000}
             width={1000}
             alt="logo"
-            className="mb-12 h-10 w-fit"
+            className="mb-12 h-24 w-fit"
           />
 
           <AppointmentForm
@@ -24,7 +25,10 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
             type="create"
           />
 
-          <p className="copyright mt-10 py-12">© 2024 CarePluse</p>
+          <p className="copyright mt-10 py-12">
+            © <CurrentYear />
+            Arogyam
+          </p>
         </div>
       </section>
 
