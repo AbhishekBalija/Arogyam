@@ -18,6 +18,26 @@ export const metadata: Metadata = {
   icons: {
     icon: "/assets/icons/logo-icon.svg",
   },
+  openGraph: {
+    title: "Arogyam",
+    description:
+      "A healthcare patient management System designed to streamline patient registration, appointment scheduling, and medical records management for healthcare providers.",
+    images: [
+      {
+        url: "/assets/images/metaback.png", // Update this path to your actual image
+        width: 1200,
+        height: 630,
+        alt: "Arogyam Healthcare System",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arogyam",
+    description:
+      "A healthcare patient management System designed to streamline patient registration, appointment scheduling, and medical records management for healthcare providers.",
+    images: ["/assets/images/metaback.png"], // Update this path to your actual image
+  },
 };
 
 export default function RootLayout({
