@@ -61,6 +61,10 @@ export const Doctors = [
     name: "Shylaja",
   },
   {
+    image: "/assets/images/varun_dr.png",
+    name: "Varun",
+  },
+  {
     image: "/assets/images/dr-remirez.png",
     name: "Rajeev",
   },
